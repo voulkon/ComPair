@@ -1,11 +1,11 @@
 #%%Modules
-from dash import Dash, html, dcc, Input, Output, State
-import pandas as pd
-import plotly.express as px
+from dash import Dash, html, dcc, Input, Output, State, callback_context
+from dash.exceptions import PreventUpdate
+
 import dash_bootstrap_components as dbc
 
-from dash.exceptions import PreventUpdate
-from dash import callback_context
+import pandas as pd
+import plotly.express as px
 
 from datetime import datetime
 
@@ -42,7 +42,7 @@ def preprocess_df(df):
     #The end of reporting period as a datetime (from string)
     df["end"] = pd.to_datetime(df["end"],format = "%Y-%m-%d")
     
-    #Since it's a date, we can easilt extract the year as integer
+    #Since it's a date, we can easily extract the year as integer
     df["Year"] = df["end"].dt.year
     
     #I noticed that whenever 'frame' column is empty, the figure reported covers previous quarters (for comparison with current)
