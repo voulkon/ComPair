@@ -124,7 +124,7 @@ my_downloader = SecFactsDownloader("my_email@my_domain.com")
 available_coms_to_download = my_downloader.fetch_companies_info(return_dataframe = True)
 
 # = my_downloader.sec_companies_info
-companies = available_coms_to_download['title'].unique()
+companies = available_coms_to_download()['title'].unique()
 
 
 # Main title of the whole page
@@ -640,7 +640,8 @@ def loadData(n_clicks, companies, credentials, upload_data, file):
             #print("My Downloader", type(my_downloader))
             
             companies_info = my_downloader.fetch_companies_info(return_dataframe = True) #sec_companies_info
-            
+            companies_info = companies_info()
+
             #print("companies_info", (companies_info))
             #print("companies_info type", type(companies_info))
             
