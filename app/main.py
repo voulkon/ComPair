@@ -640,7 +640,7 @@ def loadData(n_clicks, companies, credentials, upload_data, file):
             #print("My Downloader", type(my_downloader))
             
             companies_info = my_downloader.fetch_companies_info(return_dataframe = True) #sec_companies_info
-            companies_info = companies_info()
+            #companies_info = companies_info()
 
             #print("companies_info", (companies_info))
             #print("companies_info type", type(companies_info))
@@ -1037,7 +1037,3 @@ def update_y_timeseries(hoverData,clickData, yaxis_column_name, axis_type, df, r
         
         return create_double_time_series(dff, axis_type, title, random_colors_assigned)
 
-
-#if __name__ == '__main__':
-#    
-#    app.run_server(debug=False)
